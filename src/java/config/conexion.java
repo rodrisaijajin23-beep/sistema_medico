@@ -19,7 +19,7 @@ public class conexion {
 
     // URL estructurada para el driver de MySQL
     private static final String URL = 
-            "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME 
+            "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME + "?allowPublicKeyRetrieval=true&useSSL=false"
             + "?useSSL=false&serverTimezone=UTC&connectTimeout=" + LOGIN_TIMEOUT_MS;
 
     public Connection getConexion() {
