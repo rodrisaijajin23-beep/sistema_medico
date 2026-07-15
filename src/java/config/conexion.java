@@ -17,10 +17,11 @@ public class conexion {
     // Esto mantiene tu estrategia de tolerancia a fallos
     private static final int LOGIN_TIMEOUT_MS = 5000;
 
-    // URL estructurada para el driver de MySQL
+    
+    // URL estructurada correctamente para el driver de MySQL
     private static final String URL = 
-            "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME + "?allowPublicKeyRetrieval=true&useSSL=false"
-            + "?useSSL=false&serverTimezone=UTC&connectTimeout=" + LOGIN_TIMEOUT_MS;
+            "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME 
+            + "?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&connectTimeout=" + LOGIN_TIMEOUT_MS;
 
     public Connection getConexion() {
         Connection con = null;
