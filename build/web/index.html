@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Gestión de Citas Médicas - Secretaria</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Sistema gestion de citas médicas</h1>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn active-red">Secretaria</a>
+            <a href="medico.html" class="nav-btn">Medico</a>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="indicators">
+            <div class="card indicator-card">
+                <h3>Total de Citas</h3>
+                <p class="highlight-number" id="contadorCitas">0</p>
+            </div>
+            <div class="card indicator-card">
+                <h3>Citas Pendientes</h3>
+                <p class="highlight-number" id="contadorPendientes">0</p>
+            </div>
+        </section>
+
+        <section class="forms-container">
+            <div class="card form-card">
+                <h2>Registrar Pacientes</h2>
+                <form id="formPaciente">
+                    <div class="input-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombreCompleto" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="input-group">
+                        <label for="dni">DNI</label>
+                        <input type="text" id="dni" name="dni" required placeholder="Ej. 74839201">
+                    </div>
+                    <div class="input-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej. 987654321">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Paciente</button>
+                </form>
+            </div>
+
+            <div class="card form-card">
+                <h2>Registrar Cita</h2>
+                <form id="formCita">
+                    <div class="input-group">
+                        <label for="pacienteSelect">Paciente</label>
+                        <select id="pacienteSelect" name="pacienteSelect" required>
+                            <option value="">Seleccione un paciente...</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="medicoSelect">Médico</label>
+                        <select id="medicoSelect" name="medicoSelect" required>
+                            <option value="">Seleccione un médico...</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="horarioSelect">Horario disponible</label>
+                        <select id="horarioSelect" name="horarioSelect" required>
+                            <option value="">Seleccione un médico primero...</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="modalidad">Modalidad</label>
+                        <select id="modalidad" name="modalidad" required>
+                            <option value="">(SELECCIONE MODALIDAD)</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="virtual">Virtual</option>
+                        </select>
+                        <small class="hint-text">* Si es presencial, se enviará recordatorio.</small>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Asignar Cita</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="table-container card">
+            <h2>Listas de Citas</h2>
+            <table class="citas-table">
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>PACIENTE</th>
+                        <th>MÉDICO</th>
+                        <th>HORARIO</th>
+                        <th>ESTADO</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+                <tbody id="citasTableBody">
+                    <tr><td colspan="6">Cargando citas...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

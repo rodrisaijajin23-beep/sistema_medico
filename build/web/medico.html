@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Gestión de Citas Médicas - Médico</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Sistema gestion de citas médicas</h1>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Secretaria</a>
+            <a href="medico.html" class="nav-btn active-red">Medico</a>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="forms-container">
+            <div class="card form-card">
+                <h2>Registrar Medico</h2>
+                <form id="formRegistrarMedico">
+                    <div class="input-group">
+                        <label for="dniMedico">DNI</label>
+                        <input type="text" id="dniMedico" name="dniMedico" required placeholder="Ej. 76543210">
+                    </div>
+                    <div class="input-group">
+                        <label for="nombreMedico">Nombre Completo</label>
+                        <input type="text" id="nombreMedico" name="nombreMedico" required placeholder="Ej. Dr. Luis Neyra">
+                    </div>
+                    <div class="input-group">
+                        <label for="cmpMedico">CMP (ID)</label>
+                        <input type="text" id="cmpMedico" name="cmpMedico" required placeholder="Ej. 45890">
+                    </div>
+                    <div class="input-group">
+                        <label for="especialidad">Especialidad</label>
+                        <select id="especialidad" name="especialidad" required>
+                            <option value="">Seleccione una especialidad...</option>
+                            <option value="cardiologia">Cardiología</option>
+                            <option value="pediatria">Pediatría</option>
+                            <option value="medicina_general">Medicina General</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Médico</button>
+                </form>
+            </div>
+
+            <div class="card form-card">
+                <h2>Configurar horarios disponibles</h2>
+                <form id="formConfigurarHorario">
+                    <div class="input-group">
+                        <label for="medicoActivoSelect">Médico</label>
+                        <select id="medicoActivoSelect" name="idMedico" required>
+                            <option value="">Seleccione su usuario de médico...</option>
+                        </select>
+                        <small class="hint-text">* Como el sistema aún no tiene login, seleccione aquí su registro de médico.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="fechaDisponibilidad">Fecha</label>
+                        <input type="date" id="fechaDisponibilidad" name="fechaDisponibilidad" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="horaDisponibilidad">Hora</label>
+                        <input type="time" id="horaDisponibilidad" name="horaDisponibilidad" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Agregar Horario</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="table-container card">
+            <h2>Mis horarios</h2>
+            <table class="citas-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="horariosTableBody">
+                    <tr><td colspan="4">Seleccione un médico para ver sus horarios</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/medico.js"></script>
+</body>
+</html>
